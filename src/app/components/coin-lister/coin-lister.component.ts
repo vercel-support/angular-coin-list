@@ -42,7 +42,7 @@ export class CoinListerComponent implements OnInit {
       .subscribe((coinList: any) => {
         console.log('SUCCESS!!!')
         this.allCoins = coinList;
-        for (let i = 0; i < 100; i++) {
+        for (let i = 0; i < 20; i++) {
           //20 possible requests per refresh so we don't run into errors (max req per min for the Api is around 90)
           if (this.allCoins[i].substring(3, 6) == "usd") {
             this.getCoinData(this.allCoins[i])
