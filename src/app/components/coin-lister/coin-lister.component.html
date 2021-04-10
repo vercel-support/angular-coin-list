@@ -1,3 +1,122 @@
-<p>coin-lister works!</p>
 
-<p>{{btcCoin.ticker.price}}</p>
+<div class="container">
+    <div class="title-container">
+        <h2 class="title">Coin Data - BitFinex API</h2>
+    </div>
+
+    <div>
+        <input type="text" placeholder="search coin..." #box (keyup)="onEnter(box.value)" >
+    </div>
+    
+    <div class="table-container">
+        <table>
+            <tr class="first-row">
+              <th>Coin</th>  
+              <th>Price(USD)</th>
+              <th>Mid</th>
+              <th>Bid</th>
+              <th>Ask</th>
+              <th>Low</th>
+              <th>High</th>
+              <th>Volume</th>
+              <th>Timestamp</th>
+            </tr>
+            <tr *ngFor="let item of allCoinsData">
+              <td>{{item.name}}</td>
+              <td>{{item.last_price}}</td>
+              <td>{{item.mid}}</td>
+              <td>{{item.bid}}</td>
+              <td>{{item.ask}}</td>
+              <td>{{item.low}}</td>
+              <td>{{item.high}}</td>
+              <td>{{item.volume}}</td>
+              <td>{{item.timestamp}}</td>
+            </tr>
+        </table>
+    </div>
+    
+    
+</div>
+
+
+
+<style>
+
+    .container {
+        
+        text-align: center;
+        margin: 0 auto;
+        font-weight: lighter;
+    }
+
+    .title-container {
+        margin: 30px 0 20px 0;
+        color: white;
+        font-weight: lighter;
+    }
+
+    input::placeholder {
+        color: gray;
+        opacity: 1;
+
+    }
+
+    input:focus {
+        outline: none;
+        border-bottom: thin solid white;
+    }
+
+    input {
+        padding-left: 23px;
+        padding-right: 23px;
+        background-color:rgb(36, 34, 34);
+        margin: 15px 0 30px 0;
+        width: 150px;
+        height: 50px;
+        opacity: 1;
+        border: none;
+        color: gray;
+    }
+
+    .title {
+        font-weight: lighter;
+    }
+
+    .table-container {
+        
+        color: white;
+        width: 100%;
+        height: 100%;
+        max-height: 460px;
+        max-width: 500px;
+        text-align: center;
+        margin: 0 auto;
+        border-radius: 15px;
+        border: 1px solid white;
+        overflow: auto;
+    }
+
+    .first-row {
+        font-weight: lighter;
+        background-color: black;
+        border-radius: 15px;
+        
+    }
+
+    table {
+        width: 100%;
+    }
+
+    th {
+        padding: 10px 30px 10px 30px;
+    }
+
+    td:hover {
+        background-color: gray;
+    }
+
+    table, th, td {
+        
+    }
+</style>
+
